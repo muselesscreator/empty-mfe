@@ -4,9 +4,9 @@ import 'regenerator-runtime/runtime';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { IntlProvider } from '@edx/frontend-platform/i18n';
 import {
   APP_READY,
+  APP_INIT_ERROR,
   initialize,
   subscribe,
 } from '@edx/frontend-platform';
@@ -16,11 +16,11 @@ import appMessages from './i18n';
 import App from './App';
 
 subscribe(APP_READY, () => {
-  ReactDOM.render(
-    <IntlProvider locale="en">
-      <App />
-    </IntlProvider>,
-    document.getElementById('root'));
+  ReactDOM.render(<App />, document.getElementById('root'));
+});
+
+subscribe(APP_INIT_ERROR, (error) => {
+  ReactDOM.render(<ErrorPage message={error.message} />, document.getElementById('root'));
 });
 
 initialize({
