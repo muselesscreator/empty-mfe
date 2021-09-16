@@ -15,9 +15,12 @@ import { messages as footerMessages } from '@edx/frontend-component-footer';
 import appMessages from './i18n';
 import App from './App';
 
-/*
 subscribe(APP_READY, () => {
-  ReactDOM.render(<App />, document.getElementById('root'));
+  ReactDOM.render(
+    <IntlProvider locale="en">
+      <App />
+    </IntlProvider>,
+    document.getElementById('root'));
 });
 
 initialize({
@@ -27,11 +30,3 @@ initialize({
   ],
   requireAuthenticatedUser: true,
 });
-*/
-
-ReactDOM.render(
-  <IntlProvider locale="en">
-    <App />
-  </IntlProvider>,
-  document.getElementById('root'),
-);
