@@ -1,4 +1,5 @@
 import actions from 'data/actions';
+import thunkActions from 'data/thunkActions';
 
 const initialState = {
   list: {},
@@ -46,6 +47,7 @@ const grades = (state = initialState, { type, payload }) => {
       return { ...state, prev: payload };
 
     case actions.submissions.loadNext.toString():
+      if (state.activeIndex >= state.selected.length - 1) return state;
       return {
         ...state,
         prev: state.current,
@@ -57,6 +59,7 @@ const grades = (state = initialState, { type, payload }) => {
         next: null,
       };
     case actions.submissions.loadPrev.toString():
+      if ( state.activeIndex <= 0 )  return state;
       return {
         ...state,
         next: state.current,

@@ -1,7 +1,61 @@
 @import "@edx/paragon/scss/core/core";
+
+// action reviews
 .review-actions {
   padding: map_get($spacers, 3);
+  flex-direction: row;
+
+  .review-actions-username {
+    flex-grow: 1;
+  }
+
+  .review-actions-grading-group {
+    margin-left: 0;
+    flex-shrink: 0;
+  }
 }
-#ora-esg-list-view {
-  padding: 20px;
+
+@include media-breakpoint-down(md) {
+  .review-actions {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+}
+
+.fullscreen-modal-body {
+  background-color: $gray-300;
+  padding: inherit;
+
+  // text response
+  .response-container {
+    padding: map-get($map: $spacers, $key: 0);
+    max-width: map-get($map: $container-max-widths, $key: "sm");
+    margin: auto;
+    height: 100%;
+    .response-card {
+      height: 100%;
+      overflow-y: scroll;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .fullscreen-modal-body {
+    padding: 0 !important;
+    overflow-y: hidden !important;
+
+    div:nth-child(2) {
+      height: 100%;
+    }
+
+    .response-container {
+      max-width: 100%;
+    }
+  }
+}
+
+.grading-rubric-card {
+  width: 320px;
+  max-height: 60vh;
+  overflow-y: scroll;
 }
