@@ -19,6 +19,11 @@
   .review-actions {
     flex-direction: column;
     align-items: flex-start !important;
+
+    & > * {
+      margin-bottom: map_get($spacers, 1) !important;
+    }
+
   }
 }
 
@@ -44,8 +49,11 @@
     padding: 0 !important;
     overflow-y: hidden !important;
 
-    div:nth-child(2) {
+    & > div:nth-child(2) {
       height: 100%;
+      .row, .col {
+        height: 100%;
+      }
     }
 
     .response-container {

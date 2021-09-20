@@ -30,32 +30,30 @@ export const ReviewActions = ({
   onShowGradingRubricClick,
   showGradingRubric
 }) => (
-  <div className="review-actions">
-    <ActionRow>
-      <span className="review-actions-username">{username}{username}{username}{username}{username}
-        <StatusBadge status={status} />
-      </span>
-      <div className="review-actions-grading-group">
-        <Button variant="outline-primary" onClick={onShowGradingRubricClick}>{showGradingRubric ? 'Hide' : 'Show'} Rubric</Button>
-        <Button
-          variant="primary"
-          iconAfter={showGradingRubric ? Close : Edit}
-          onClick={onShowGradingRubricClick}
-        >{showGradingRubric ? 'Stop Grading' : 'Start Grading'}</Button>
-        <ActionRow.Spacer />
-        <IconButton size="inline" src={ChevronLeft} iconAs={Icon} onClick={() => {
-          loadPrev();
-          prefetchPrev();
-        }} />
-        <span>{activeIndex + 1} of {selected.length}</span>
-        <IconButton size="inline" src={ChevronRight} iconAs={Icon} onClick={() => {
-          loadNext();
-          prefetchNext();
-        }} />
+  <ActionRow className="review-actions">
+    <span className="review-actions-username">{username}{username}{username}{username}{username}
+      <StatusBadge className="ml-1" status={status} />
+    </span>
+    <div className="review-actions-grading-group">
+      <Button variant="outline-primary" onClick={onShowGradingRubricClick}>{showGradingRubric ? 'Hide' : 'Show'} Rubric</Button>
+      <Button
+        variant="primary"
+        iconAfter={showGradingRubric ? Close : Edit}
+        onClick={onShowGradingRubricClick}
+      >{showGradingRubric ? 'Stop Grading' : 'Start Grading'}</Button>
+      <ActionRow.Spacer />
+      <IconButton size="inline" src={ChevronLeft} iconAs={Icon} onClick={() => {
+        loadPrev();
+        prefetchPrev();
+      }} />
+      <span>{activeIndex + 1} of {selected.length}</span>
+      <IconButton size="inline" src={ChevronRight} iconAs={Icon} onClick={() => {
+        loadNext();
+        prefetchNext();
+      }} />
 
-      </div>
-    </ActionRow>
-  </div>
+    </div>
+  </ActionRow>
 );
 
 let submissionPropType = PropTypes.shape({
