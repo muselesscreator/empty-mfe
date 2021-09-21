@@ -19,15 +19,13 @@ export const ResponseContainer = ({
     text
 }) => {
     return (
-        <div className="response-container">
-            <Card className="response-card">
-                <Card.Body>
+        <Card className="response-card">
+            <Card.Body>
                 {text}
                 {text}
                 {text}
-                </Card.Body>
-            </Card>
-        </div>
+            </Card.Body>
+        </Card>
     );
 }
 

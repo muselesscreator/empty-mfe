@@ -23,7 +23,6 @@
     & > * {
       margin-bottom: map_get($spacers, 1) !important;
     }
-
   }
 }
 
@@ -32,16 +31,18 @@
   padding: inherit;
 
   // text response
-  .response-container {
+  .response-card {
     padding: map-get($map: $spacers, $key: 0);
     max-width: map-get($map: $container-max-widths, $key: "sm");
-    margin: auto;
     height: 100%;
-    .response-card {
-      height: 100%;
-      overflow-y: scroll;
-    }
+    overflow-y: scroll;
   }
+}
+
+.content-block {
+  width: fit-content;
+  margin: auto;
+  height: 100%;
 }
 
 @include media-breakpoint-down(sm) {
@@ -51,19 +52,37 @@
 
     & > div:nth-child(2) {
       height: 100%;
-      .row, .col {
-        height: 100%;
-      }
-    }
 
-    .response-container {
-      max-width: 100%;
+      .row,
+      .col {
+        height: 100%;
+        padding: 0;
+      }
     }
   }
 }
 
 .grading-rubric-card {
   width: 320px;
-  max-height: 60vh;
-  overflow-y: scroll;
+  height: fit-content;
+  max-height: 70vh;
+  min-height: 320px;
+
+  .grading-rubric-header {
+    box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.3) !important;
+    display: flex;
+    justify-content: center;
+    padding: map-get($map: $spacers, $key: 3);
+  }
+
+  .grading-rubric-body {
+    overflow-y: scroll;
+  }
+
+  .grading-rubric-footer {
+    box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.3) !important;
+    display: flex;
+    justify-content: center;
+    padding: map-get($map: $spacers, $key: 3);
+  }
 }

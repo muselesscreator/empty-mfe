@@ -40,13 +40,14 @@ export const ReviewModal = ({
       onClose={() => setShowReview(false)}
       modalBodyClassName="fullscreen-modal-body"
     >
-      <Row>
-        <Col><ResponseContainer /></Col>
-        {
-          showGradingRubric && <Col><GradingRubric /></Col>
-        }
-      </Row>
-
+      <div class="content-block">
+        <Row>
+          <Col><ResponseContainer /></Col>
+          {
+            showGradingRubric && <GradingRubric />
+          }
+        </Row>
+      </div>
     </FullscreenModal>
   );
 }
