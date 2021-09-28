@@ -32,6 +32,7 @@ App.defaultProps = {
     title: '',
     number: null,
     org: '',
+    courseId: ''
   },
 };
 App.propTypes = {
@@ -39,6 +40,7 @@ App.propTypes = {
     title: PropTypes.string,
     number: PropTypes.string,
     org: PropTypes.string,
+    courseId: PropTypes.string
   }),
 };
 
