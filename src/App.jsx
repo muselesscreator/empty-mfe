@@ -10,6 +10,9 @@ import selectors from 'data/selectors';
 import ListView from 'containers/ListView';
 import './App.scss';
 
+import { Hyperlink, Icon, Button, Container } from '@edx/paragon'
+import { ArrowBack } from '@edx/paragon/icons';
+
 import { Header } from 'containers/CourseHeader';
 
 const App = ({ courseMetadata }) => (
@@ -20,7 +23,13 @@ const App = ({ courseMetadata }) => (
         courseNumber={courseMetadata.number}
         courseOrg={courseMetadata.org}
       />
-      <main>
+      <main className="p-4">
+        <div className="my-4">
+          <Hyperlink destination={`${process.env.LMS_BASE_URL}/courses/${courseMetadata.courseId}/instructor#view-open_response_assessment`}>
+            <ArrowBack className="mr-3" />
+            Back to all open responses
+          </Hyperlink>
+        </div>
         <ListView />
       </main>
       <Footer logo={process.env.LOGO_POWERED_BY_OPEN_EDX_URL_SVG} />

@@ -58,7 +58,7 @@ export class ListView extends React.Component {
     }
 
     return (
-      <div id="ora-esg-list-view">
+      <div>
         <DataTable
           isFilterable
           numBreakoutFilters={2}
