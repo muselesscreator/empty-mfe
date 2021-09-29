@@ -15,7 +15,7 @@ import { ArrowBack } from '@edx/paragon/icons';
 
 import { Header } from 'containers/CourseHeader';
 
-const App = ({ courseMetadata }) => (
+const App = ({ courseMetadata, oraName }) => (
   <Router>
     <div>
       <Header
@@ -24,12 +24,11 @@ const App = ({ courseMetadata }) => (
         courseOrg={courseMetadata.org}
       />
       <main className="p-4">
-        <div className="my-4">
-          <Hyperlink destination={`${process.env.LMS_BASE_URL}/courses/${courseMetadata.courseId}/instructor#view-open_response_assessment`}>
-            <ArrowBack className="mr-3" />
-            Back to all open responses
-          </Hyperlink>
-        </div>
+        <Hyperlink className="py-4" destination={`${process.env.LMS_BASE_URL}/courses/${courseMetadata.courseId}/instructor#view-open_response_assessment`}>
+          <ArrowBack className="mr-3" />
+          Back to all open responses
+        </Hyperlink>
+        <p className="h3 py-4">{oraName}</p>
         <ListView />
       </main>
       <Footer logo={process.env.LOGO_POWERED_BY_OPEN_EDX_URL_SVG} />
@@ -43,6 +42,7 @@ App.defaultProps = {
     org: '',
     courseId: ''
   },
+  assessmentName: '',
 };
 App.propTypes = {
   courseMetadata: PropTypes.shape({
@@ -51,10 +51,12 @@ App.propTypes = {
     org: PropTypes.string,
     courseId: PropTypes.string
   }),
+  oraName: PropTypes.string,
 };
 
 export const mapStateToProps = (state) => ({
   courseMetadata: selectors.app.courseMetadata(state),
+  oraName: selectors.app.oraName(state),
 });
 
 export default connect(mapStateToProps)(App);
